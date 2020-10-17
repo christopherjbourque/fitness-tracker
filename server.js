@@ -1,4 +1,4 @@
-// Import third-party packages
+// Import third-party module(s)
 
 const express = require("express");
 const logger = require("morgan");

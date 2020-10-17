@@ -1,6 +1,14 @@
+// Import third-party module(s)
+
 const mongoose = require("mongoose");
 
+
+// Set Mongoose schema
+
 const Schema = mongoose.Schema;
+
+
+// Define Mongoose schema
 
 const workoutSchema = new Schema(
   {
@@ -41,20 +49,25 @@ const workoutSchema = new Schema(
   },
   {
     toJSON: {
-      // include any virtual properties when data is requested
       virtuals: true
     }
   }
 );
 
-// adds a dynamically-created property to schema
+// Add dynamically-created property to Mongoose schema
+
 workoutSchema.virtual("totalDuration").get(function () {
-  // "reduce" array of exercises down to just the sum of their durations
   return this.exercises.reduce((total, exercise) => {
     return total + exercise.duration;
   }, 0);
 });
 
+
+// Create Workout
+
 const Workout = mongoose.model("Workout", workoutSchema);
+
+
+// Export Workout for use my other module(s)
 
 module.exports = Workout;

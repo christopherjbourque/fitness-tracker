@@ -1,10 +1,22 @@
+// Import third-party module(s)
+
 let mongoose = require("mongoose");
+
+
+// Import custom module(s)
+
 let db = require("../models");
+
+
+// Connect to database
 
 mongoose.connect("mongodb://localhost/workout", {
   useNewUrlParser: true,
   useFindAndModify: false
 });
+
+
+// Add sample data
 
 let workoutSeed = [
   {
