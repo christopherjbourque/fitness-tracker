@@ -5,14 +5,10 @@ const logger = require("morgan");
 const mongoose = require("mongoose");
 
 
+
 // Create server
 
 const app = express();
-
-
-// Setup logger
-
-app.use(logger("dev"));
 
 
 
@@ -32,6 +28,12 @@ app.use(express.static("public"));
 
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
+
+
+
+// Setup logger
+
+app.use(logger("dev"));
 
 
 
